@@ -35,7 +35,9 @@ jobs:
       - name: copy default config
         run: |
           mkdir -p  ~/.meshery
-          curl https://raw.githubusercontent.com/layer5io/meshery/37af1e8fea802ac754e83473cb9f63d97d8d850f/mesheryctl/pkg/utils/TestConfig.yaml -o ~/.meshery/config.yml
+          cd  ~/.meshery
+          wget https://raw.githubusercontent.com/layer5io/meshery/37af1e8fea802ac754e83473cb9f63d97d8d850f/mesheryctl/pkg/utils/TestConfig.yaml 
+          mv TestConfig.yaml config.yaml 
           
       - name: verify install
         run: mesheryctl version
