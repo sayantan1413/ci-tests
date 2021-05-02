@@ -32,6 +32,11 @@ jobs:
           brew tap layer5io/tap
           brew install mesheryctl
           
+      - name: copy default config
+        run: |
+          mkdir -p  ~/.meshery
+          curl https://raw.githubusercontent.com/layer5io/meshery/37af1e8fea802ac754e83473cb9f63d97d8d850f/mesheryctl/pkg/utils/TestConfig.yaml -o ~/.meshery/config.yml
+          
       - name: verify install
         run: mesheryctl version
         
