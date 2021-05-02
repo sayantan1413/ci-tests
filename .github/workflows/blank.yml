@@ -73,7 +73,7 @@ jobs:
              helm install meshery --namespace meshery install/kubernetes/helm/meshery 
            
       - name: deploy using mesheryctl
-        if: ${{ env.DEPLOYMENT_MODE == 'helm' }} 
+        if: ${{ env.DEPLOYMENT_MODE == 'mesheryctl' }} 
         run: |
              mesheryctl system start
  
