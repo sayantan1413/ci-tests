@@ -43,7 +43,7 @@ jobs:
         run: mesheryctl version
         
       - name: install go
-        run: apt install golang-go
+        run: sudo apt install golang-go
         
       - name: install kind
         run: GO111MODULE="on" go get sigs.k8s.io/kind@v0.10.0 && kind create cluster
