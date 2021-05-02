@@ -19,6 +19,9 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    env:
+      # mesheryctl or helm
+      DEPLOYMENT_MODE: mesheryctl
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -62,9 +65,15 @@ jobs:
       - name: install helm
         run: curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
         
-      - name: deploy meshery
+      - name: deploy meshery using helm 
+        if: ${{ env.DEPLOYMENT_MODE == 'helm' }} 
         run: |
              git clone https://github.com/layer5io/meshery.git; cd meshery
              kubectl create namespace meshery
-             helm install meshery --namespace meshery install/kubernetes/helm/meshery
+             helm install meshery --namespace meshery install/kubernetes/helm/meshery 
+           
+      - name: deploy using mesheryctl
+        if: ${{ env.DEPLOYMENT_MODE == 'helm' }} 
+        run: |
+             mesheryctl system start
  
