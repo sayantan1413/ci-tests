@@ -75,7 +75,7 @@ jobs:
       - name: deploy using mesheryctl
         if: ${{ env.DEPLOYMENT_MODE == 'mesheryctl' }} 
         run: |
-             cat ${{ secrets.AUTH_TOKEN }} > ~/auth.json
+             echo ${{ secrets.AUTH_TOKEN }} > ~/auth.json
              mesheryctl system start& 
              mesheryctl system config minikube -t ~/auth.json
  
