@@ -10,5 +10,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: step1
-        uses: layer5io/getnighthawk@v1.0.3
-
+        uses: layer5io/mesheryctl-smi-conformance-action@master
