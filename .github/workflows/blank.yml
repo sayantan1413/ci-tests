@@ -1,4 +1,4 @@
-name: nighthawk-exp
+name: SMP-ACTION
 on:
   push:
     branches:
@@ -13,4 +13,4 @@ jobs:
         uses: layer5io/mesheryctl-smi-conformance-action@master
         with:
             token: null
-            performance_profile: "./perf.json"
+            performance_profile: "../../perf.json"
