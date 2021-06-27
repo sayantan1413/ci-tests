@@ -1,0 +1,12 @@
+{
+  "Name": "is_this_a_test",
+  "ID": "48334c1c-26b8-46f4-a4b5-e0c69250f1b6",
+  "Endpoints": [
+    "http://192.168.1.15/productpage"
+  ],
+  "QPS": 300,
+  "Duration": "30s",
+  "Loadgenerators": [
+    "fortio"
+  ]
+}
