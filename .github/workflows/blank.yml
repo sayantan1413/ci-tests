@@ -11,6 +11,7 @@ jobs:
     steps:
       - name: step1
         uses: layer5io/mesheryctl-smi-conformance-action@master
-          with:
+        with:
             token: null
-            mesheryctl perf --name "mesheryctl action perf tests" --url https://google.com --qps 4 --concurrent-requests 1 --duration 6s --token ~/auth.json
+            performance_profile:
+                          mesheryctl perf --name "mesheryctl action perf tests" --url https://google.com --qps 4 --concurrent-requests 1 --duration 6s --token ~/auth.json
