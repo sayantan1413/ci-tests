@@ -1,0 +1,13 @@
+name: SMP-ACTION
+on:
+  push:
+    branches:
+      - 'master'
+
+jobs:
+  job1:
+    name: everything
+    runs-on: ubuntu-latest
+    steps:
+      - name: step1
+        uses: DelusionalOptimist/mesheryctl-actions@main
