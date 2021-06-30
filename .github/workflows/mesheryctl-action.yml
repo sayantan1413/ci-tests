@@ -1,4 +1,4 @@
-name: SMP-ACTION
+name: SMP-ACTION-NEW
 on:
   push:
     branches:
