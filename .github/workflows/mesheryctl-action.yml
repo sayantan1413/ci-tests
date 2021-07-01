@@ -9,5 +9,10 @@ jobs:
     name: everything
     runs-on: ubuntu-latest
     steps:
+      - name: setup minikube
+        uses: manusa/actions-setup-minikube@v2.4.1
+        with:
+          minikube version: 'v1.16.0'
+          kubernetes version: 'v1.19.2'
       - name: mesheryctl action
         uses: DelusionalOptimist/mesheryctl-actions@main
