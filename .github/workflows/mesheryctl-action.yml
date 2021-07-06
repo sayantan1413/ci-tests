@@ -13,6 +13,6 @@ jobs:
         uses: manusa/actions-setup-minikube@v2.4.1
         with:
           minikube version: 'v1.21.0'
-          minikube version: 'v1.20.7'
+          kubernetes version: 'v1.20.7'
       - name: mesheryctl action
         uses: DelusionalOptimist/mesheryctl-actions@main
