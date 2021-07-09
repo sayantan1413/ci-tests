@@ -14,4 +14,4 @@ jobs:
       - name: Do stuff
         # any command that mesheryctl is capable of handling
         run:
-          mesheryctl system version
+	        mesheryctl perf apply --profile test --url https://google.com -t ~/auth.json
