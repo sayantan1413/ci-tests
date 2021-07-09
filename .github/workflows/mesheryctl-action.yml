@@ -11,3 +11,7 @@ jobs:
     steps:
       - name: mesheryctl action
         uses: DelusionalOptimist/mesheryctl-actions@main
+      - name: Do stuff
+        # any command that mesheryctl is capable of handling
+        run:
+          mesheryctl system version
