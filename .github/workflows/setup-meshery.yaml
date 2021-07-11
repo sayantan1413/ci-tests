@@ -20,4 +20,4 @@ jobs:
 
       - name: Do stuff
         run: |
-          mehseryctl system config minikube -t ~/auth.json
+          mesheryctl system config minikube -t ~/auth.json
