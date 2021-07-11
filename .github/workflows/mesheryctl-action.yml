@@ -11,6 +11,9 @@ jobs:
     steps:
       - name: mesheryctl action
         uses: DelusionalOptimist/mesheryctl-actions@main
+        with:
+          spec: smi
+          service_mesh: "meshery-osm:10009"
       - name: Do stuff
         # any command that mesheryctl is capable of handling
         run: |
