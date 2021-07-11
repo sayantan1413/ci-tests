@@ -19,7 +19,9 @@ jobs:
         run: |
            curl -LO https://github.com/openservicemesh/osm/releases/download/v0.9.1/osm-v0.9.1-linux-amd64.tar.gz
            tar -xzf osm-v0.9.1-linux-amd64.tar.gz
-           mv ./linux-amd64/osm ~/osm-bin
+           mkdir ~/osm
+           mv ./linux-amd64/osm ~/osm/osm-bin
+           PATH="$PATH:$HOME/osm"
            ~/osm-bin install --osm-namespace default
 
       - name: mesheryctl action
@@ -27,3 +29,9 @@ jobs:
         with:
           spec: smi
           service_mesh: "meshery-osm:10009"
+
+      - name: mesheryctl action
+        uses: DelusionalOptimist/mesheryctl-actions@main
+        with:
+          spec: istio-vet
+          service_mesh: "meshery-istio:10000"
