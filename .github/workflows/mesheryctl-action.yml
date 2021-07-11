@@ -18,7 +18,8 @@ jobs:
       - name: Install OSM
         run: |
            curl -LO https://github.com/openservicemesh/osm/releases/download/v0.9.1/osm-v0.9.1-linux-amd64.tar.gz
-           mv ./linux-amd64 ~/osm-bin
+           tar -xzf osm-v0.9.1-linux-amd64.tar.gz
+           mv ./linux-amd64/osm ~/osm-bin
            ~/osm-bin install
 
       - name: mesheryctl action
