@@ -22,7 +22,7 @@ jobs:
            mkdir -p ~/osm/bin
            mv ./linux-amd64/osm ~/osm/bin/osm-bin
            PATH="$PATH:$HOME/osm/bin/"
-           osm install --osm-namespace default
+           osm-bin install --osm-namespace default
 
       - name: mesheryctl action
         uses: DelusionalOptimist/mesheryctl-actions@main
