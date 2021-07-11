@@ -18,7 +18,7 @@ jobs:
       - name: mesheryctl action
         uses: DelusionalOptimist/mesheryctl-actions@setup-meshery
         with:
-          token: {{ secrets.PROVIDER_TOKEN }}
+          provider_token: {{ secrets.PROVIDER_TOKEN }}
 
       - name: Do stuff
         run: |
