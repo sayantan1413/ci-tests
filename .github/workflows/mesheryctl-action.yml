@@ -21,7 +21,7 @@ jobs:
            tar -xzf osm-v0.9.1-linux-amd64.tar.gz
            mkdir ~/osm
            mv ./linux-amd64/osm ~/osm/osm-bin
-           PATH="$PATH:$HOME/osm"
+           PATH="$PATH:$HOME/osm/"
            osm install --osm-namespace default
 
       - name: mesheryctl action
