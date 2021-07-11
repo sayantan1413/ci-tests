@@ -19,9 +19,9 @@ jobs:
         run: |
            curl -LO https://github.com/openservicemesh/osm/releases/download/v0.9.1/osm-v0.9.1-linux-amd64.tar.gz
            tar -xzf osm-v0.9.1-linux-amd64.tar.gz
-           mkdir ~/osm
-           mv ./linux-amd64/osm ~/osm/osm-bin
-           PATH="$PATH:$HOME/osm/"
+           mkdir -p ~/osm/bin
+           mv ./linux-amd64/osm ~/osm/bin/osm-bin
+           PATH="$PATH:$HOME/osm/bin/"
            osm install --osm-namespace default
 
       - name: mesheryctl action
