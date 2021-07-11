@@ -1,0 +1,23 @@
+name: Meshery
+on:
+  push:
+    branches:
+      - 'setup-meshery'
+
+jobs:
+  job1:
+    name: everything
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy k8s
+        uses: manusa/actions-setup-minikube@v2.4.1
+        with:
+          minikube version: 'v1.21.0'
+          kubernetes version: 'v1.20.7'
+
+      - name: mesheryctl action
+        uses: DelusionalOptimist/mesheryctl-actions@setup-meshery
+
+      - name: Do stuff
+        run: |
+          mehseryctl system config minikube -t ~/auth.json
