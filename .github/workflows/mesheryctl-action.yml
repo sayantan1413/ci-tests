@@ -29,9 +29,3 @@ jobs:
         with:
           spec: smi
           service_mesh: "meshery-osm:10009"
-
-      - name: mesheryctl action
-        uses: DelusionalOptimist/mesheryctl-actions@main
-        with:
-          spec: istio-vet
-          service_mesh: "meshery-istio:10000"
