@@ -17,9 +17,8 @@ jobs:
 
       - name: mesheryctl action
         uses: DelusionalOptimist/mesheryctl-actions@setup-meshery
-        with:
-          provider_token: {{ secrets.PROVIDER_TOKEN }}
 
       - name: Do stuff
         run: |
           mesheryctl system config minikube -t ~/auth.json
+          mesheryctl perf apply --profile test --url https://google.com -t ~/auth.json
