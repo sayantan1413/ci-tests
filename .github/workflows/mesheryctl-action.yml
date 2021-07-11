@@ -14,8 +14,3 @@ jobs:
         with:
           spec: smi
           service_mesh: "meshery-osm:10009"
-      - name: Do stuff
-        # any command that mesheryctl is capable of handling
-        run: |
-          mesheryctl perf view test -t ~/auth.json
-          mesheryctl perf apply --profile test --url https://google.com -t ~/auth.json
