@@ -11,8 +11,6 @@ jobs:
     steps:
       - name: mesheryctl action
         uses: DelusionalOptimist/mesheryctl-actions@main
-        with:
-          provider_token: "${{ secrets.PROVIDER_TOKEN }}"
       - name: Do stuff
         # any command that mesheryctl is capable of handling
         run: |
