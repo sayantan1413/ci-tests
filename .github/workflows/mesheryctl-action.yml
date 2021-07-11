@@ -20,7 +20,7 @@ jobs:
            curl -LO https://github.com/openservicemesh/osm/releases/download/v0.9.1/osm-v0.9.1-linux-amd64.tar.gz
            tar -xzf osm-v0.9.1-linux-amd64.tar.gz
            mv ./linux-amd64/osm ~/osm-bin
-           ~/osm-bin install
+           ~/osm-bin install --osm-namespace default
 
       - name: mesheryctl action
         uses: DelusionalOptimist/mesheryctl-actions@main
