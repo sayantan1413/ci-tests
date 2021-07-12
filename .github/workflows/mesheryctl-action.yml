@@ -31,3 +31,11 @@ jobs:
           platform: docker
           spec: smi
           service_mesh: osm
+
+      - name: test
+        run: |
+          while [ $i -le 25 ];
+            kubectl get pods --all-namespaces
+            sleep 5;
+          done
+
