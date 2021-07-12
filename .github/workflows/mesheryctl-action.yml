@@ -27,5 +27,6 @@ jobs:
       - name: mesheryctl action
         uses: DelusionalOptimist/mesheryctl-actions@main
         with:
+          platform: docker
           spec: smi
           service_mesh: osm
