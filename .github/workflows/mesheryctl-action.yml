@@ -34,11 +34,5 @@ jobs:
 
       - name: test
         run: |
-          i=0;
-          while [ $i -le 25 ];
-          do
-            kubectl get pods --all-namespaces
-            ((i++));
-            sleep 5;
-          done
-
+          sleep 120
+          kubectl get pods --all-namespaces
