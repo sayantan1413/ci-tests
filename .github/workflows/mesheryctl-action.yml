@@ -28,4 +28,4 @@ jobs:
         uses: DelusionalOptimist/mesheryctl-actions@main
         with:
           spec: smi
-          service_mesh: "osm"
+          service_mesh: osm
