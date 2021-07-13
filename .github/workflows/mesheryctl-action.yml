@@ -2,7 +2,7 @@ name: Meshery
 on:
   push:
     branches:
-      - 'master'
+      - 'refactor'
 
 jobs:
   job1:
