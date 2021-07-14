@@ -12,6 +12,7 @@ jobs:
       - name: Deploy k8s
         uses: manusa/actions-setup-minikube@v2.4.1
         with:
+          driver: docker
           minikube version: 'v1.21.0'
           kubernetes version: 'v1.20.7'
 
@@ -22,6 +23,8 @@ jobs:
 
       - name: Do stuff
         run: |
+          docker network connect bridge meshery_meshery_1
+          docker network connect minikube meshery_meshery_1
           mesheryctl version
           mesheryctl system config minikube -t ~/auth.json
           mesheryctl perf apply --profile test --url https://google.com -t ~/auth.json
