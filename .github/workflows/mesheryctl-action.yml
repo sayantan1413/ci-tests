@@ -26,7 +26,7 @@ jobs:
            osm-bin install --osm-namespace default
 
       - name: mesheryctl action
-        uses: DelusionalOptimist/mesheryctl-smi-conformace-action@action-mvp
+        uses: DelusionalOptimist/mesheryctl-smi-conformance-action@action-mvp
         with:
           platform: docker
           spec: smi
