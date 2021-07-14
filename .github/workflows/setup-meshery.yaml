@@ -23,8 +23,6 @@ jobs:
 
       - name: Do stuff
         run: |
-          docker network connect bridge meshery_meshery_1
-          docker network connect minikube meshery_meshery_1
           mesheryctl version
           mesheryctl system config minikube -t ~/auth.json
           mesheryctl perf apply --profile test --url https://google.com -t ~/auth.json
