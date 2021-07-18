@@ -26,9 +26,8 @@ jobs:
            osm-bin install --osm-namespace default
 
       - name: mesheryctl action
-        uses: layer5io/mesheryctl-smi-conformance-action@master
+        uses: DelusionalOptimist/mesheryctl-smi-conformance-action@config
         with:
-          provider_token: ${{ secrets.PROVIDER_TOKEN }}
           platform: docker
           spec: smi
           service_mesh: osm
