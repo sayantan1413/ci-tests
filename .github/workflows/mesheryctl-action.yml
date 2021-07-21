@@ -28,13 +28,7 @@ jobs:
       - name: mesheryctl action
         uses: DelusionalOptimist/mesheryctl-smi-conformance-action@config
         with:
+          token: ${{ secrets.PROVIDER_TOKEN }}
           platform: docker
           spec: smi
           service_mesh: osm
-
-      - name: test
-        run: |
-          sleep 300
-          kubectl get pods --all-namespaces
-          sleep 300
-          kubectl get pods --all-namespaces
