@@ -28,7 +28,7 @@ jobs:
       - name: mesheryctl action
         uses: DelusionalOptimist/mesheryctl-smi-conformance-action@config
         with:
-          token: ${{ secrets.PROVIDER_TOKEN }}
+          provider_token: ${{ secrets.PROVIDER_TOKEN }}
           platform: docker
           spec: smi
           service_mesh: osm
