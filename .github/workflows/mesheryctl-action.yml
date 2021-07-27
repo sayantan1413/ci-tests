@@ -27,4 +27,4 @@ jobs:
           platform: docker
           spec: smi
           service_mesh: linkerd
-          path_to_bin: "~/.linkerd2/bin/linkerd"
+          path_to_binary: "~/.linkerd2/bin/linkerd"
