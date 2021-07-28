@@ -9,8 +9,11 @@ jobs:
     name: Dooing stuff
     runs-on: ubuntu-latest
     steps:
+      - name: Checokut
+        uses: actions/checkout@v2
+
       - name: run commands
         run: |
           ls -R $GITHUB_WORKSPACE/..
-          #cat $GITHUB_WORKSPACE/.github/perf.yaml
+          cat $GITHUB_WORKSPACE/.github/perf.yaml
           pwd
