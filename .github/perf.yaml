@@ -1,0 +1,18 @@
+smp_version: v0.0.1
+id: test
+name: test
+labels: {}
+clients:
+- internal: false
+  load_generator: fortio
+  protocol: 1
+  connections: 2
+  rps: 10
+  headers: {}
+  cookies: {}
+  body: ""
+  content_type: ""
+  endpoint_urls:
+  - https://github.com
+  - https://google.com
+duration: "5s"
