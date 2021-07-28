@@ -12,4 +12,3 @@ jobs:
       - name: run commands
         run: |
           pwd
-
