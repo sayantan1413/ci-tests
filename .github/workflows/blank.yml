@@ -11,6 +11,6 @@ jobs:
     steps:
       - name: run commands
         run: |
-          echo $GITHUB_WORKSPACE
-          cat $GITHUB_WORKSPACE/.github/perf.yaml
+          ls -R $GITHUB_WORKSPACE
+          #cat $GITHUB_WORKSPACE/.github/perf.yaml
           pwd
