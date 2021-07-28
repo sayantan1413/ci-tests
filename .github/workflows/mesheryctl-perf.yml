@@ -24,6 +24,6 @@ jobs:
       - name: Performance test
         uses: DelusionalOptimist/meshery-smp-action@mvp
         with:
-          provider_token: ${{ $secrets.PROVIDER_TOKEN }}
+          provider_token: ${{ secrets.PROVIDER_TOKEN }}
           platform: docker
           profile_filename: perf.yaml
