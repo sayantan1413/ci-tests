@@ -11,7 +11,7 @@ jobs:
   do_stuff:
     name: Dooing stuff
     runs-on: ubuntu-latest
-    if: github.repository == 'meshery/meshery'
+    if: github.repository == 'DelusionalOptimist/ci-tests'
     steps:
       - name: Checokut
         uses: actions/checkout@v2
