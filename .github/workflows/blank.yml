@@ -11,4 +11,5 @@ jobs:
     steps:
       - name: run commands
         run: |
+          echo $GITHUB_WORKSPACE
           pwd
