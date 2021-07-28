@@ -11,6 +11,7 @@ jobs:
   do_stuff:
     name: Dooing stuff
     runs-on: ubuntu-latest
+    if: github.repository == 'meshery/meshery'
     steps:
       - name: Checokut
         uses: actions/checkout@v2
