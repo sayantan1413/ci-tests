@@ -3,6 +3,9 @@ on:
   push:
     branches:
       - 'tests'
+  pull_request:
+    branches:
+      - 'tests'
 
 jobs:
   do_stuff:
@@ -17,3 +20,8 @@ jobs:
           ls -R $GITHUB_WORKSPACE/..
           cat $GITHUB_WORKSPACE/.github/perf.yaml
           pwd
+
+      - name: run commands
+        if: ${{ github.event_name == "push" }}
+        run: |
+          echo "NICE"
