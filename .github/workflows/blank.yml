@@ -22,6 +22,6 @@ jobs:
           pwd
 
       - name: run commands
-        if: ${{ github.event_name == "push" }}
+        if: ${{ github.event_name == push }}
         run: |
           echo "NICE"
