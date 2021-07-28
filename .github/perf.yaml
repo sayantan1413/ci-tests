@@ -1,0 +1,9 @@
+smp_version: v0.0.1
+id: 44693738-3c17-485e-bdd2-c2f9be9c5dda
+name: profile
+clients:
+- endpoint_urls:
+  - https://google.com
+  load_generator: fortio
+  rps: 1
+duration: 5s
