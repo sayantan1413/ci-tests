@@ -16,9 +16,11 @@ jobs:
           kubernetes version: 'v1.20.7'
           driver: docker
 
-      - name: Fetch Linkerd Binary
+      - name: Fetch OSM Binary
         run: |
-          curl -sL https://run.linkerd.io/install | sh
+          curl -LO https://github.com/openservicemesh/osm/releases/download/v0.9.1/osm-v0.9.1-linux-amd64.tar.gz
+          tar -xzf ./osm-v0.9.1-linux-amd64.tar.gz
+          mv ./linux-amd64 ~/linux-amd64
 
       - name: mesheryctl action
         uses: DelusionalOptimist/mesheryctl-smi-conformance-action@mesh-deploy
@@ -26,5 +28,5 @@ jobs:
           provider_token: ${{ secrets.PROVIDER_TOKEN }}
           platform: docker
           spec: smi
-          service_mesh: linkerd
-          path_to_binary: ~/.linkerd2/bin/linkerd
+          service_mesh: open_service_mesh
+          path_to_binary: ~/linux-amd64/
