@@ -22,7 +22,7 @@ jobs:
           driver: docker
 
       - name: Performance test
-        uses: DelusionalOptimist/meshery-smp-action@perf-profile-name
+        uses: layer5io/meshery-smp-action@master
         with:
           provider_token: ${{ secrets.PROVIDER_TOKEN }}
           platform: docker
