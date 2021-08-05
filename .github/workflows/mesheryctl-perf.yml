@@ -26,4 +26,4 @@ jobs:
         with:
           provider_token: ${{ secrets.PROVIDER_TOKEN }}
           platform: docker
-          profile_name: test_sm
+          profile_name: test_istio
