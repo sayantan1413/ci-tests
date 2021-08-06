@@ -1,8 +1,10 @@
 name: Meshery
 on:
-  push:
-    branches:
-      - 'master'
+  workflow_dispatch:
+    inputs:
+      provider_token:
+        description: "Meshery auth token"
+        required: true
 
 jobs:
   job1:
@@ -25,8 +27,8 @@ jobs:
       - name: mesheryctl action
         uses: DelusionalOptimist/mesheryctl-smi-conformance-action@mesh-deploy
         with:
-          provider_token: ${{ secrets.PROVIDER_TOKEN }}
+          provider_token: ${{ github.event.inputs.provider_token }}
           platform: docker
           spec: smi
-          service_mesh: open_service_mesh
+          service_mesh: osm
           path_to_binary: ~/linux-amd64/
