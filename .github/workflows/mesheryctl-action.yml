@@ -22,7 +22,7 @@ jobs:
         run: |
           curl -LO https://github.com/openservicemesh/osm/releases/download/v0.9.1/osm-v0.9.1-linux-amd64.tar.gz
           tar -xzf ./osm-v0.9.1-linux-amd64.tar.gz
-          mv ./linux-amd64 ~/linux-amd64
+          export PATH="$PWD:~/linux-amd64/"
 
       - name: mesheryctl action
         uses: DelusionalOptimist/mesheryctl-smi-conformance-action@mesh-deploy
@@ -30,5 +30,5 @@ jobs:
           provider_token: ${{ github.event.inputs.provider_token }}
           platform: docker
           spec: smi
-          service_mesh: osm
-          path_to_binary: ~/linux-amd64/
+          service_mesh: open_service_mesh
+          binary_name: "osm"
