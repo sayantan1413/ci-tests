@@ -22,7 +22,7 @@ jobs:
         run: |
           curl -LO https://github.com/openservicemesh/osm/releases/download/v0.6.0/osm-v0.6.0-linux-amd64.tar.gz
           tar -xzf ./osm-v0.6.0-linux-amd64.tar.gz
-          export PATH="$PWD:~/linux-amd64/"
+          export PATH="$PWD:linux-amd64/"
 
       - name: mesheryctl action
         uses: DelusionalOptimist/mesheryctl-smi-conformance-action@mesh-deploy
