@@ -20,8 +20,8 @@ jobs:
 
       - name: Fetch OSM Binary
         run: |
-          curl -LO https://github.com/openservicemesh/osm/releases/download/v0.9.1/osm-v0.9.1-linux-amd64.tar.gz
-          tar -xzf ./osm-v0.9.1-linux-amd64.tar.gz
+          curl -LO https://github.com/openservicemesh/osm/releases/download/v0.6.0/osm-v0.6.0-linux-amd64.tar.gz
+          tar -xzf ./osm-v0.6.0-linux-amd64.tar.gz
           export PATH="$PWD:~/linux-amd64/"
 
       - name: mesheryctl action
