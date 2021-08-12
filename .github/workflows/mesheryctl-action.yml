@@ -18,17 +18,8 @@ jobs:
           kubernetes version: 'v1.20.7'
           driver: docker
 
-      - name: Fetch OSM Binary
-        run: |
-          curl -LO https://github.com/openservicemesh/osm/releases/download/v0.6.0/osm-v0.6.0-linux-amd64.tar.gz
-          tar -xzf ./osm-v0.6.0-linux-amd64.tar.gz
-          export PATH="$PWD:linux-amd64/"
-
       - name: mesheryctl action
         uses: DelusionalOptimist/mesheryctl-smi-conformance-action@mesh-deploy
         with:
           provider_token: ${{ github.event.inputs.provider_token }}
-          platform: docker
-          spec: smi
           service_mesh: open_service_mesh
-          binary_name: "osm"
