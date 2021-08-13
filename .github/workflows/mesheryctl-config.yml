@@ -17,7 +17,6 @@ jobs:
         run:
           service_mesh_adapter=meshery-$service_mesh
           curl -L https://git.io/meshery | DEPLOY_MESHERY=false bash -
-          sleep 2
 
           mesheryctl system context create new-context1 --adapters $service_mesh_adapter --platform docker --url http://localhost:9081 --set --yes
           sleep 2
