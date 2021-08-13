@@ -1,0 +1,26 @@
+name: Custom mesh
+on:
+  workflow_dispatch:
+    inputs:
+      service_mesh_adapter:
+        description: "none"
+        required: true
+
+jobs:
+  job1:
+    name: blah
+    runs-on: ubuntu-latest
+    env:
+      service_mesh_adapter: ${{ github.event.inputs.provider_token }}
+    steps:
+      - name: Get mesheryctl
+        run:
+          curl -L https://git.io/meshery | DEPLOY_MESHERY=false bash -
+
+          mesheryctl system context create new-context1 --adapters $service_mesh_adapter --platform docker --url http://localhost:9081 --set --yes
+          mesheryctl system context create new-context2 --adapters '$service_mesh_adapter' --platform docker --url http://localhost:9081 --set --yes
+          mesheryctl system context create new-context3 --adapters "$service_mesh_adapter" --platform docker --url http://localhost:9081 --set --yes
+          mesheryctl system context create new-context4 --adapters "'$service_mesh_adapter'" --platform docker --url http://localhost:9081 --set --yes
+          mesheryctl system context create new-context5 --adapters '$service_mesh_adapter' --platform docker --url http://localhost:9081 --set --yes
+
+          cat ~/.meshery/config.yaml
