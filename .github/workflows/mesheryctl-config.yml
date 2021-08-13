@@ -15,18 +15,18 @@ jobs:
     steps:
       - name: Get mesheryctl
         run:
-          service_mesh_adapter="meshery-$service_mesh"
+          service_mesh_adapter=meshery-$service_mesh
           curl -L https://git.io/meshery | DEPLOY_MESHERY=false bash -
 
           mesheryctl system context create new-context1 --adapters=$service_mesh_adapter --platform docker --url http://localhost:9081 --set --yes;
           sleep 2;
-          mesheryctl system context create new-context2 --adapters '$service_mesh_adapter' --platform docker --url http://localhost:9081 --set;
+          mesheryctl system context create new-context2 --adapters='$service_mesh_adapter' --platform docker --url http://localhost:9081 --set;
           sleep 2;
-          mesheryctl system context create new-context3 --adapters "$service_mesh_adapter" --platform docker --url http://localhost:9081 --set;
+          mesheryctl system context create new-context3 --adapters="$service_mesh_adapter" --platform docker --url http://localhost:9081 --set;
           sleep 2;
-          mesheryctl system context create new-context4 --adapters "'$service_mesh_adapter'" --platform docker --url http://localhost:9081 --set;
+          mesheryctl system context create new-context4 --adapters="'$service_mesh_adapter'" --platform docker --url http://localhost:9081 --set;
           sleep 2;
-          mesheryctl system context create new-context5 --adapters '$service_mesh_adapter' --platform docker --url http://localhost:9081 --set;
+          mesheryctl system context create new-context5 --adapters '"$service_mesh_adapter"' --platform docker --url http://localhost:9081 --set;
           sleep 2
 
           cat ~/.meshery/config.yaml
