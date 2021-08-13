@@ -1,18 +1,22 @@
-name: Meshery
+name: SMI Conformance Validation using Meshery
 on:
-  workflow_dispatch:
-    inputs:
-      provider_token:
-        description: "Meshery auth token"
-        required: true
+  push:
+    branch:
+      'master'
+    tags:
+      - 'v*'
 
 jobs:
-  job1:
-    name: everything
+  do_conformance:
+    name: Conformance Validation
     runs-on: ubuntu-latest
     steps:
-      - name: mesheryctl action
-        uses: DelusionalOptimist/mesheryctl-smi-conformance-action@mesh-deploy
+
+      # This action takes care of installing a cluster, installing the latest
+      # release of a service mesh and running SMI Conformance Tests on it
+      - name: SMI conformance tests
+        uses: layer5io/mesheryctl-smi-conformance-action@master
         with:
-          provider_token: ${{ github.event.inputs.provider_token }}
+          provider_token: ${{ secrets.PROVIDER_TOKEN }}
           service_mesh: open_service_mesh
+          mesh_deployed: false
