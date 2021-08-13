@@ -15,7 +15,8 @@ jobs:
       # This action takes care of installing a cluster, installing the latest
       # release of a service mesh and running SMI Conformance Tests on it
       - name: SMI conformance tests
-        uses: layer5io/mesheryctl-smi-conformance-action@master
+        #uses: layer5io/mesheryctl-smi-conformance-action@master
+        uses: DelusionalOptimist/mesheryctl-smi-conformance-action@new-docs
         with:
           provider_token: ${{ github.event.inputs.provider_token }}
           service_mesh: open_service_mesh
