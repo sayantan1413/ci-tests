@@ -1,0 +1,40 @@
+name: Custom mesh
+on:
+  workflow_dispatch:
+    inputs:
+      provider_token:
+        description: "Meshery auth token"
+        required: true
+
+jobs:
+  do_conformance:
+    name: Conformance Validation
+    runs-on: ubuntu-latest
+    steps:
+
+      # deploy k8s
+      - name: Deploy k8s
+        uses: manusa/actions-setup-minikube@v2.4.1
+        with:
+          minikube version: 'v1.21.0'
+          kubernetes version: 'v1.20.7'
+          driver: docker
+
+			# Install the wanted version of your service mesh
+      - name: Install OSM
+        run: |
+           curl -LO https://github.com/openservicemesh/osm/releases/download/v0.9.1/osm-v0.9.1-linux-amd64.tar.gz
+           tar -xzf osm-v0.9.1-linux-amd64.tar.gz
+           mkdir -p ~/osm/bin
+           mv ./linux-amd64/osm ~/osm/bin/osm-bin
+           PATH="$PATH:$HOME/osm/bin/"
+           osm-bin install --osm-namespace default
+
+      # This action takes care of installing a cluster, installing the latest
+      # release of a service mesh and running SMI Conformance Tests on it
+      - name: SMI conformance tests
+        uses: layer5io/mesheryctl-smi-conformance-action@master
+        with:
+          provider_token: ${{ github.event.inputs.provider_token }}
+          service_mesh: open_service_mesh
+          mesh_deployed: true
