@@ -11,3 +11,4 @@ jobs:
       - name: Do stuff
         run: |
           echo "This workflow will trigger a different workflow"
+          exit 1
