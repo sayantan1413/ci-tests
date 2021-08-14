@@ -16,7 +16,7 @@ jobs:
       # release of a service mesh and running SMI Conformance Tests on it
       - name: SMI conformance tests
         #uses: layer5io/mesheryctl-smi-conformance-action@master
-        uses: suhanii/mesheryctl-smi-conformance-action@service_mesh_adapter/32/suhanii
+        uses: suhaniii/mesheryctl-smi-conformance-action@service_mesh_adapter/32/suhaniii
         with:
           provider_token: ${{ github.event.inputs.provider_token }}
           service_mesh: open_service_mesh
