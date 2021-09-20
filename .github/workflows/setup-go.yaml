@@ -9,12 +9,12 @@ jobs:
     name: try setting up go
     runs-on: ubuntu-latest
     steps:
-      - setup-go:
+      - name: Setup go
         uses: actions/setup-go@v2
         with:
           go-version: ${{ secrets.GO_VERSION }}
           stable: true
 
-      - what-version:
+      - name: what version
         run: |
           go version
