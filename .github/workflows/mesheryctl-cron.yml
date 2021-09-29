@@ -1,8 +1,7 @@
-name: Testing SMP action
+name: SMP cron job
 on:
-  push:
-    branches:
-      'perf'
+  schedule:
+    - cron: '5 * * * *'
 
 jobs:
   job1:
@@ -26,4 +25,4 @@ jobs:
         with:
           provider_token: ${{ secrets.PROVIDER_TOKEN }}
           platform: docker
-          profile_name: test_istio
+          profile_name: SMP_CRON_JOB
