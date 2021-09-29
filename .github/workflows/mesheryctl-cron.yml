@@ -1,7 +1,7 @@
 name: SMP cron job
 on:
   schedule:
-    - cron: '5 * * * *'
+    - cron: '*/5 * * * *'
 
 jobs:
   job1:
