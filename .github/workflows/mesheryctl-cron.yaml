@@ -26,5 +26,5 @@ jobs:
         uses: DelusionalOptimist/meshery-smp-action@meshery-ci
         with:
           provider_token: ${{ secrets.PROVIDER_TOKEN }}
-          platform: docker
+          platform: kubernetes
           profile_name: SMP_CRON_ISTIO
