@@ -1,0 +1,32 @@
+name: SMP cron job
+on:
+  workflow_dispatch:
+    inputs:
+      x:
+        required: false 
+  schedule:
+    - cron: '*/5 * * * *'
+
+jobs:
+  job1:
+    name: Run Performance Test
+    runs-on: ubuntu-latest
+    steps:
+      #- name: checkout
+      #  uses: actions/checkout@v2
+      #  with:
+      #   ref: 'perf'
+
+      - name: Deploy k8s
+        uses: manusa/actions-setup-minikube@v2.4.1
+        with:
+          minikube version: 'v1.21.0'
+          kubernetes version: 'v1.20.7'
+          driver: docker
+
+      - name: Performance test
+        uses: layer5io/meshery-smp-action@master
+        with:
+          provider_token: ${{ secrets.PROVIDER_TOKEN }}
+          platform: docker
+          profile_name: SMP_CRON_JOB
