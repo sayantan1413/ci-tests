@@ -1,5 +1,11 @@
 name: SMP cron job
-on:
+on: 
+  workflow_dispatch:
+    inputs:       
+      x:
+        required: false
+
+    
   schedule:
     - cron: '*/5 * * * *'
 
@@ -8,10 +14,10 @@ jobs:
     name: Run Performance Test
     runs-on: ubuntu-latest
     steps:
-      - name: checkout
-        uses: actions/checkout@v2
-        with:
-          ref: 'perf'
+      #- name: checkout
+      #  uses: actions/checkout@v2
+      #  with:
+      #   ref: 'perf'
 
       - name: Deploy k8s
         uses: manusa/actions-setup-minikube@v2.4.1
