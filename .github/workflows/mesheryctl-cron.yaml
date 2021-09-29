@@ -1,9 +1,6 @@
 name: SMP cron job
 on:
   workflow_dispatch:
-    inputs:
-      x:
-        required: false 
   schedule:
     - cron: '*/5 * * * *'
 
