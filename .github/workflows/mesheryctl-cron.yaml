@@ -3,7 +3,10 @@ on:
   workflow_dispatch:
     inputs:       
       x:
-        required: false
+        required: false 
+  push:
+    branches:
+      'perf-cron'
 
     
   schedule:
