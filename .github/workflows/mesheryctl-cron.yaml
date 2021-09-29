@@ -1,16 +1,11 @@
 name: SMP cron job
-on: 
+on:
   workflow_dispatch:
-    inputs:       
+    inputs:
       x:
         required: false 
-  push:
-    branches:
-      'perf-cron'
-
-    
   schedule:
-    - cron: '*/10 * * * *'
+    - cron: '*/5 * * * *'
 
 jobs:
   job1:
