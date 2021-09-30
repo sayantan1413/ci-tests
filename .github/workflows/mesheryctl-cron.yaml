@@ -1,4 +1,4 @@
-name: SMP cron job
+name: Multi k8s version e2e tests
 on:
   workflow_dispatch:
     inputs:
@@ -18,10 +18,11 @@ on:
 # manual-job is triggered manually in case of problems with provider tokens
 jobs:
   manual-job:
-    name: Run Performance Test
+    name: Run tests manually
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'workflow_dispatch' }}
     strategy:
+      fail-fast: false
       matrix:
         k8s_versions: ['v1.20.11', 'v1.21.5', 'v1.22.2']
     steps:
@@ -32,7 +33,7 @@ jobs:
           kubernetes version: ${{ matrix.k8s_versions }}
           driver: docker
 
-      - name: Performance test
+      - name: Test using meshery-smp-action
         #uses: layer5io/meshery-smp-action@master
         uses: DelusionalOptimist/meshery-smp-action@meshery-ci
         with:
@@ -42,10 +43,11 @@ jobs:
 
 # auto-job is triggered with a cron scehdule
   auto-job:
-    name: Run Performance Test
+    name: Auto run tests
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'schedule' }}
     strategy:
+      fail-fast: false
       matrix:
         k8s_versions: ['v1.20.11', 'v1.21.5', 'v1.22.2']
     steps:
@@ -56,7 +58,7 @@ jobs:
           kubernetes version: ${{ matrix.k8s_versions }}
           driver: docker
 
-      - name: Performance test
+      - name: Test using meshery-smp-action
         #uses: layer5io/meshery-smp-action@master
         uses: DelusionalOptimist/meshery-smp-action@meshery-ci
         with:
