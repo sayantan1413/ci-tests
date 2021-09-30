@@ -5,7 +5,6 @@ on:
       provider_token:
         description: "token for remote provider"
         required: false
-        default: ${{ secrets.PROVIDER_TOKEN }}
       profile_name:
         description: "name of the performance profile to use"
         required: false
@@ -13,16 +12,16 @@ on:
     #  schedule:
     #    - cron: '*/30 * * * *'
 
+# these jobs deploy a minikube cluster with k8s versions 1.20, 1.21, 1.22
+# uses meshery, meshery-adapters edge-latest and mesheryctl stable-latest
+
+# manual-job is triggered manually in case of problems with provider tokens
 jobs:
-  job1:
+  manual-job:
     name: Run Performance Test
     runs-on: ubuntu-latest
+    if: ${{ github.event == 'workflow_dispatch' }}
     steps:
-      #- name: checkout
-      #  uses: actions/checkout@v2
-      #  with:
-      #   ref: 'perf'
-
       - name: Deploy k8s
         uses: manusa/actions-setup-minikube@v2.4.1
         with:
@@ -37,3 +36,24 @@ jobs:
           provider_token: ${{ github.event.inputs.provider_token }}
           platform: kubernetes
           profile_name: ${{ github.event.inputs.profile_name }}
+
+# auto-job is triggered with a cron scehdule
+  auto-job:
+    name: Run Performance Test
+    runs-on: ubuntu-latest
+    if: ${{ github.event == 'schedule' }}
+    steps:
+      - name: Deploy k8s
+        uses: manusa/actions-setup-minikube@v2.4.1
+        with:
+          minikube version: 'v1.21.0'
+          kubernetes version: 'v1.20.7'
+          driver: docker
+
+      - name: Performance test
+        #uses: layer5io/meshery-smp-action@master
+        uses: DelusionalOptimist/meshery-smp-action@meshery-ci
+        with:
+          provider_token: ${{ secrets.provider_token }}
+          platform: kubernetes
+          profile_name: SMP_CRON_ISTIO
