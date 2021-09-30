@@ -21,12 +21,15 @@ jobs:
     name: Run Performance Test
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'workflow_dispatch' }}
+    strategy:
+      matrix:
+        k8s_versions: ['v1.20.11', 'v1.21.5', 'v1.22.2']
     steps:
       - name: Deploy k8s
         uses: manusa/actions-setup-minikube@v2.4.1
         with:
-          minikube version: 'v1.21.0'
-          kubernetes version: 'v1.20.7'
+          minikube version: 'v1.23.2'
+          kubernetes version: ${{ matrix.k8s_versions }}
           driver: docker
 
       - name: Performance test
@@ -42,12 +45,15 @@ jobs:
     name: Run Performance Test
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'schedule' }}
+    strategy:
+      matrix:
+        k8s_versions: ['v1.20.11', 'v1.21.5', 'v1.22.2']
     steps:
       - name: Deploy k8s
         uses: manusa/actions-setup-minikube@v2.4.1
         with:
-          minikube version: 'v1.21.0'
-          kubernetes version: 'v1.20.7'
+          minikube version: 'v1.23.2'
+          kubernetes version: ${{ matrix.k8s_versions }}
           driver: docker
 
       - name: Performance test
