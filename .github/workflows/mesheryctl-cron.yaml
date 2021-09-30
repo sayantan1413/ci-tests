@@ -1,7 +1,7 @@
 name: SMP cron job
 on:
   workflow_dispatch:
-    input:
+    inputs:
       provider_token:
         description: "token for remote provider"
         required: "false"
