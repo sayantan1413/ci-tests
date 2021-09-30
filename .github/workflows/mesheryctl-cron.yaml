@@ -1,6 +1,15 @@
 name: SMP cron job
 on:
   workflow_dispatch:
+    input:
+      provider_token:
+        description: "token for remote provider"
+        required: "false"
+        default: ${{ secrets.PROVIDER_TOKEN }}
+      profile_name:
+        description: "name of the performance profile to use"
+        required: "false"
+        default: SMP_CRON_ISTIO
     #  schedule:
     #    - cron: '*/30 * * * *'
 
@@ -25,6 +34,6 @@ jobs:
         #uses: layer5io/meshery-smp-action@master
         uses: DelusionalOptimist/meshery-smp-action@meshery-ci
         with:
-          provider_token: ${{ secrets.PROVIDER_TOKEN }}
+          provider_token: ${{ github.event.inputs.provider_token }}
           platform: kubernetes
-          profile_name: SMP_CRON_ISTIO
+          profile_name: ${{ github.event.inputs.profile_name }}
