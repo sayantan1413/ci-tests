@@ -4,11 +4,11 @@ on:
     inputs:
       provider_token:
         description: "token for remote provider"
-        required: "false"
+        required: false
         default: ${{ secrets.PROVIDER_TOKEN }}
       profile_name:
         description: "name of the performance profile to use"
-        required: "false"
+        required: false
         default: SMP_CRON_ISTIO
     #  schedule:
     #    - cron: '*/30 * * * *'
