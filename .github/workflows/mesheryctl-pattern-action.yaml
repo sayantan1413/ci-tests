@@ -1,12 +1,15 @@
 name: Mesheryctl Pattern Action
 on:
-  push:
-    branches:
-      - 'master'
+  # if manually triggering, provide a provider token yourself
+  workflow_dispatch:
+    inputs:
+      provider_token:
+        description: "token for remote provider"
+        required: false
 
 jobs:
-  job1:
     name: everything
+    if: github.repository == 'sayantan1413/ci-tests'
     runs-on: ubuntu-latest
     steps:
       - name: mesheryctl pattern
