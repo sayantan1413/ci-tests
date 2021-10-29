@@ -18,7 +18,7 @@ jobs:
     steps:
       - name: mesheryctl pattern
         uses: sayantan1413/mesheryctl-service-mesh-patterns-action@master
-      - name: Do stuff
+      - name: Do stuffs
         # any command that mesheryctl is capable of handling
         run: |
           mesheryctl pattern apply pat.yml
