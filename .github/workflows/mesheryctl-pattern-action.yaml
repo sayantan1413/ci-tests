@@ -1,5 +1,8 @@
 name: Mesheryctl Pattern Action
 on:
+  push:
+    branches:
+      - 'master'
   # if manually triggering, provide a provider token yourself
   workflow_dispatch:
     inputs:
