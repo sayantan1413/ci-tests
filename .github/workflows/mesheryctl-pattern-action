@@ -1,0 +1,17 @@
+name: Mesheryctl Pattern Action
+on:
+  push:
+    branches:
+      - 'master'
+
+jobs:
+  job1:
+    name: everything
+    runs-on: ubuntu-latest
+    steps:
+      - name: mesheryctl pattern
+        uses: sayantan1413/mesheryctl-service-mesh-patterns-action@main
+      - name: Do stuff
+        # any command that mesheryctl is capable of handling
+        run: |
+          mesheryctl pattern apply pat.yml
