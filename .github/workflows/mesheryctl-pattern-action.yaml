@@ -16,7 +16,7 @@ jobs:
     if: github.repository == 'sayantan1413/ci-tests'
     runs-on: ubuntu-latest
     steps:
-      - name: mesheryctl pattern
+      - name: mesheryctl pattern action
         uses: sayantan1413/mesheryctl-service-mesh-patterns-action@master
       - name: Do stuffs
         # any command that mesheryctl is capable of handling
