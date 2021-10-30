@@ -12,8 +12,15 @@ on:
 
 jobs:
   job1:
+    # deploy k8s
+    - name: Deploy k8s
+      if: github.repository == 'sayantan1413/ci-tests'
+      uses: manusa/actions-setup-minikube@v2.4.1
+      with:
+        minikube version: 'v1.21.0'
+        kubernetes version: 'v1.20.7'
+        driver: docker
     name: Mesheryctl Pattern Actions 
-    if: github.repository == 'sayantan1413/ci-tests'
     runs-on: ubuntu-latest
     steps:
       - name: mesheryctl pattern action
