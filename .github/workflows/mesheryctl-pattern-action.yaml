@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       provider_token:
-        description: "token for remote provider"
+        description: "Meshery auth token"
         required: true
 
 jobs:
@@ -17,4 +17,6 @@ jobs:
     steps:
       - name: mesheryctl pattern action
         uses: sayantan1413/mesheryctl-service-mesh-patterns-action@master
+        with:
+          provider_token: ${{ github.event.inputs.provider_token }}
       
