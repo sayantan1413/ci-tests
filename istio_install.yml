@@ -1,19 +1,18 @@
-### 
 pattern-id: MESHERY001
 pattern-name: Basic Istio Install
-service-mesh:				    # (required*) one or more service meshes
-  istio-acme:				    # (required*) name of the instance mesh
-    type: IstioMesh			    # (required*) type of service mesh
-    namespace: istio-system		# (required*) control plane namespace required
-    settings:				    # (optional) control and data plane settings
-      version: 1.8.2			# (required) service mesh build version
-      profile: demo				# (optional) reference to service mesh configuration
-    traits:				    # (required) one or more configuration 
-      mTLS:				    # (optional)
-        policy: mutual			# (optional)
-        namespaces:			  # (optional)
-          - istio-test			 # (optional)
-      automaticSidecarInjection:    # (optional)
-        namespaces:			    # (optional)
-          - default				# (optional)
-          - istio-test			# (optional)
+service-mesh:				    
+  istio-acme:				   
+    type: IstioMesh			   
+    namespace: istio-system		
+    settings:				    
+      version: 1.8.2			
+      profile: demo				
+    traits:				    
+      mTLS:				   
+        policy: mutual			
+        namespaces:			  
+          - istio-test			
+      automaticSidecarInjection:   
+        namespaces:			   
+          - default				
+          - istio-test			
