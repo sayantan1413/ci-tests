@@ -8,7 +8,7 @@ on:
     inputs:
       provider_token:
         description: "token for remote provider"
-        required: false
+        required: true
 
 jobs:
   job1:
