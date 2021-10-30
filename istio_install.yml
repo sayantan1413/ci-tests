@@ -1,0 +1,18 @@
+pattern-id: MESHERY001
+pattern-name: Basic Istio Install
+service-mesh:				    
+  istio-acme:				   
+    type: IstioMesh			   
+    namespace: istio-system		
+    settings:				    
+      version: 1.8.2			
+      profile: demo				
+    traits:				    
+      mTLS:				   
+        policy: mutual			
+        namespaces:			  
+          - istio-test			
+      automaticSidecarInjection:   
+        namespaces:			   
+          - default				
+          - istio-test			
