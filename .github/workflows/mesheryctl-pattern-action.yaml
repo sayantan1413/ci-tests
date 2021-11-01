@@ -1,4 +1,4 @@
-name: Mesheryctl Pattern Action
+name: Mesheryctl Pattern Actions
 on:
   push:
     branches:
