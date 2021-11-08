@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - 'master'
-  # if manually triggering, provide a provider token yourself
+  # if manually triggering, provide a provider tokens yourself
   workflow_dispatch:
     inputs:
       provider_token:
