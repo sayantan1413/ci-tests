@@ -15,6 +15,9 @@ jobs:
     name: Mesheryctl Pattern Actions 
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+      - name: GitHub CLI example
+        run: gh issue list
       - name: mesheryctl pattern action
         uses: sayantan1413/mesheryctl-service-mesh-patterns-action@master
         with:
