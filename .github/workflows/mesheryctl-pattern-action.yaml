@@ -15,9 +15,15 @@ jobs:
     name: Mesheryctl Pattern Actions 
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: GitHub CLI example
-        run: gh issue list
+      - uses: actions/checkout@v1
+      - name: Install hub
+          uses: geertvdc/setup-hub@master
+      - name: run hub commands
+          env:
+            GITHUB_USER: ${{ secrets.GH_USER }}
+            GITHUB_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
+          run: |
+              hub release
       - name: mesheryctl pattern action
         uses: sayantan1413/mesheryctl-service-mesh-patterns-action@master
         with:
