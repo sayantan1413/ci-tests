@@ -19,4 +19,6 @@ jobs:
         uses: sayantan1413/mesheryctl-service-mesh-patterns-action@master
         with:
           provider_token: ${{ github.event.inputs.provider_token }}
+          platform: docker
+          url: https://raw.githubusercontent.com/service-mesh-patterns/service-mesh-patterns/master/samples/IstioFilterPattern.yaml
       
